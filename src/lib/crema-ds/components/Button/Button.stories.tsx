@@ -1,8 +1,8 @@
 import React from "react"
-import Button from "."
+import { Button } from "./Button"
 
 export default {
   title: "Button",
 }
 
-export const example = () => <Button text="Example " />
+export const example = () => <Button>Example</Button>

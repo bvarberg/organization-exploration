@@ -2,10 +2,10 @@ import React from "react"
 import { Button as MUIButton } from "@material-ui/core"
 
 interface Props {
-  text: string
   onClick?: () => void
+  children: React.ReactChild
 }
 
-export default function Button({ text, onClick = () => null }: Props) {
-  return <MUIButton onClick={onClick}>{text}</MUIButton>
+export function Button({ children, onClick = () => null }: Props) {
+  return <MUIButton onClick={onClick}>{children}</MUIButton>
 }
