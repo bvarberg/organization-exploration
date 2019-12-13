@@ -1,17 +1,15 @@
 import React, { Suspense, lazy } from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
-import { APIContext } from "../../contexts/api"
+import { APIContext } from "../../contexts/APIContext"
+import { createApi } from "../../api"
 import { theme } from "../../theme"
-import { config } from "../../config"
 
 const Home = lazy(() => import("../../routes/Home"))
 const CompaniesBrowser = lazy(() => import("../../routes/CompaniesBrowser"))
 const CompanyDetails = lazy(() => import("../../routes/CompanyDetails"))
 
-const api = {
-  request: () => console.log(`request to ${config.api.baseUrl}`),
-}
+const api = createApi()
 
 export function App() {
   return (
