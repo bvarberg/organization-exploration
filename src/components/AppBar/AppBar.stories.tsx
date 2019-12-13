@@ -6,3 +6,6 @@ export default {
 }
 
 export const example = () => <AppBar />
+export const filled = () => (
+  <AppBar navigation={<span>Navigation</span>} actions={<span>Action</span>} />
+)

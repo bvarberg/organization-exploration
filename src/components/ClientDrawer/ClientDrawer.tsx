@@ -1,11 +1,11 @@
 import React from "react"
 import { useClient } from "../../hooks/useClient"
 import { Drawer } from "../Drawer"
-import { DrawerHeader } from "./DrawerHeader"
+import { Header } from "./Header"
 
 type Props = Readonly<{
   clientId: string
-  children?: React.ReactChild
+  children?: React.ReactNode
 }>
 
 export function ClientDrawer(props: Props) {
@@ -14,10 +14,8 @@ export function ClientDrawer(props: Props) {
 
   return (
     <Drawer>
-      <React.Fragment>
-        <DrawerHeader title={client.displayName} subtitle={client.shortName} />
-        {children}
-      </React.Fragment>
+      <Header title={client.displayName} subtitle={client.shortName} />
+      {children}
     </Drawer>
   )
 }
