@@ -1,10 +1,7 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
 
-const theme = {
-  spacing: (n: number) => `${n * 4}px`,
-  primaryColor: "#fed9e1"
-}
+import { theme } from '../../src/theme'
 
 export function useTheme(storyFn: any) {
   return (
