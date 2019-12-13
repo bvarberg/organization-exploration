@@ -1,5 +1,6 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+import { useHistory } from "react-router-dom"
 
 import logo from "../../assets/logo.svg"
 
@@ -9,31 +10,32 @@ interface AppBarProps {
   onClickLogo?: () => void
 }
 
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
 const Container = styled.div`
   height: 50px;
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  background-color: ${props =>
-    props.theme.primaryColor ? props.theme.primaryColor : "steelblue"};
+  background-color: ${props => props.theme.primaryColor};
 `
 
-const Logo = styled.img`
-  height: 100%;
-  padding: ${props => props.theme.spacing(4)};
-  width: 50px;
-  animation: AppBarLogo-spin infinite 20s linear;
-
-  @keyframes AppBarLogo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+const Logo = styled.img.attrs(_ => ({
+  size: "50px",
+}))`
+  height: ${props => props.size};
+  width: ${props => props.size};
+  padding: ${props => props.theme.spacing(1)};
+  animation: ${spin} infinite 20s linear;
+  cursor: pointer;
 `
 
 const Spreader = styled.div`
@@ -42,7 +44,7 @@ const Spreader = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: ${props => props.theme.spacing(8)};
+  padding: ${props => props.theme.spacing(1)};
 `
 
 const NavigationContainer = styled.div`
@@ -68,4 +70,14 @@ export function AppBar({
       </Spreader>
     </Container>
   )
+}
+
+export function ConnectedAppBar() {
+  const history = useHistory()
+
+  function handleClickLogo() {
+    history.push("/")
+  }
+
+  return <AppBar onClickLogo={handleClickLogo} />
 }

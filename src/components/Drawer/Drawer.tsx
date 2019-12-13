@@ -10,7 +10,7 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid steelblue;
+  border-right: 1px solid ${props => props.theme.primaryColor};
 `
 
 export function Drawer({ children }: Props) {

@@ -1,1 +1,1 @@
-export { AppBar } from "./AppBar"
+export { ConnectedAppBar as AppBar } from "./AppBar"
