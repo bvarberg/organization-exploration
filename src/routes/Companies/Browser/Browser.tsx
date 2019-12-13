@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-import { AppBar } from "../../components/AppBar"
+import { AppBar } from "../../../components/AppBar"
 
-export function CompaniesBrowser() {
+export function Browser() {
   return (
     <div>
       <AppBar />
+      <h1>Company Browser</h1>
       <ul>
         <Link to="/companies/124">
           <li>Crema</li>

@@ -6,8 +6,7 @@ import { createApi } from "../../api"
 import { theme } from "../../theme"
 
 const Home = lazy(() => import("../../routes/Home"))
-const CompaniesBrowser = lazy(() => import("../../routes/CompaniesBrowser"))
-const CompanyDetails = lazy(() => import("../../routes/CompanyDetails"))
+const Companies = lazy(() => import("../../routes/Companies"))
 
 const api = createApi()
 
@@ -21,11 +20,8 @@ export function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/companies/:companyId">
-                <CompanyDetails />
-              </Route>
               <Route path="/companies">
-                <CompaniesBrowser />
+                <Companies />
               </Route>
             </Switch>
           </Suspense>
