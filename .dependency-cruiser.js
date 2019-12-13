@@ -4,10 +4,10 @@ module.exports = {
     {
       name: 'not-to-component-implementation',
       severity: 'error',
-      comment: `This module depends on the implementation details of another component.
-Instead, consider depending on the interface exposed by the top-level component extract the
-desired functionality to a new top-level component.
-            `,
+      comment: `This component depends on the implementation details of another component.
+        Consider changing the component to instead depend on the interface exposed by the top-level component.
+        Given more scrutiny, you may also consider extracting the common functionality to a new top-level component.
+      `,
       from: {
         path: "^src/components/([^/]+)/.+"
       },
