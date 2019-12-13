@@ -21,7 +21,6 @@ export function useCompany({ id }: Params) {
 
   useEffect(() => {
     const loadCompany = async () => {
-      // dispatch({ type: "FETCH_INIT" })
       try {
         // const document = await api.findOne({ type: "company", id })
         api.request()
@@ -31,9 +30,8 @@ export function useCompany({ id }: Params) {
           id,
         }
         setCompany(document)
-        // dispatch({ type: "FETCH_SUCCESS", payload: result.data })
-      } catch (error) {
-        // dispatch({ type: "FETCH_FAILURE" })
+      } catch (err) {
+        console.error(err)
       }
     }
 

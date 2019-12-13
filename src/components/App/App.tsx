@@ -6,6 +6,7 @@ import { theme } from "../../theme"
 import { config } from "../../config"
 
 const Home = lazy(() => import("../../routes/Home"))
+const CompaniesBrowser = lazy(() => import("../../routes/CompaniesBrowser"))
 const CompanyDetails = lazy(() => import("../../routes/CompanyDetails"))
 
 const api = {
@@ -24,6 +25,9 @@ export function App() {
               </Route>
               <Route path="/companies/:companyId">
                 <CompanyDetails />
+              </Route>
+              <Route path="/companies">
+                <CompaniesBrowser />
               </Route>
             </Switch>
           </Suspense>

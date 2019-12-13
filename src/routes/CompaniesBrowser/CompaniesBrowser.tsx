@@ -3,14 +3,15 @@ import { Link } from "react-router-dom"
 
 import { AppBar } from "../../components/AppBar"
 
-export function Home() {
+export function CompaniesBrowser() {
   return (
     <div>
       <AppBar />
-      <h1>Home</h1>
-      <p>
-        <Link to="/companies">Companies</Link>
-      </p>
+      <ul>
+        <Link to="/companies/124">
+          <li>Crema</li>
+        </Link>
+      </ul>
     </div>
   )
 }
