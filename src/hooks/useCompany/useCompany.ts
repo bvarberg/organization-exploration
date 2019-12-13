@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { APIContext } from "../../contexts/api"
 
 interface Params {
   readonly id: string
@@ -11,6 +12,7 @@ interface Company {
 }
 
 export function useCompany({ id }: Params) {
+  const api = useContext(APIContext)
   const [company, setCompany] = useState<Company>({
     displayName: "No company",
     shortName: "none",
@@ -22,6 +24,7 @@ export function useCompany({ id }: Params) {
       // dispatch({ type: "FETCH_INIT" })
       try {
         // const document = await api.findOne({ type: "company", id })
+        api.request()
         const document = {
           displayName: "Crema",
           shortName: "crema",
@@ -35,7 +38,7 @@ export function useCompany({ id }: Params) {
     }
 
     loadCompany()
-  }, [id])
+  }, [api, id])
 
   return company
 }
