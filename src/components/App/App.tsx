@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components"
 import { theme } from "../../theme"
 
 const Home = lazy(() => import("../../routes/Home"))
-const ClientDetails = lazy(() => import("../../routes/ClientDetails"))
+const CompanyDetails = lazy(() => import("../../routes/CompanyDetails"))
 
 export function App() {
   return (
@@ -16,8 +16,8 @@ export function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/client/:clientId">
-              <ClientDetails />
+            <Route path="/companies/:companyId">
+              <CompanyDetails />
             </Route>
           </Switch>
         </Suspense>

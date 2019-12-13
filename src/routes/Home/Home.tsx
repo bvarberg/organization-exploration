@@ -5,11 +5,11 @@ import { AppBar } from "../../components/AppBar"
 
 export function Home() {
   return (
-    <div className="App">
+    <div>
       <AppBar />
       <h1>Home</h1>
       <p>
-        <Link to="/client/123">Go to Client Details</Link>
+        <Link to="/companies/124">Go to Company Details</Link>
       </p>
     </div>
   )

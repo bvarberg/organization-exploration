@@ -1,14 +1,14 @@
-import { ClientDrawer } from "."
+import { CompanyDrawer } from "."
 import React from "react"
 import { render } from "@testing-library/react"
 
-describe("ClientDrawer", () => {
+describe("CompanyDrawer", () => {
   it("name prop is rendered", () => {
     // Arrange
-    const name = "ClientDrawer"
+    const name = "CompanyDrawer"
 
     // Act
-    const { getByText } = render(<ClientDrawer name={name} />)
+    const { getByText } = render(<CompanyDrawer companyId="124" />)
     const received = getByText(name)
 
     // Assert
