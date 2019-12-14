@@ -1,6 +1,6 @@
-import { RuleBreaker } from "."
-import React from "react"
 import { render } from "@testing-library/react"
+import React from "react"
+import { RuleBreaker } from "."
 
 describe("RuleBreaker", () => {
   it("name prop is rendered", () => {

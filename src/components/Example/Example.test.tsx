@@ -1,6 +1,6 @@
-import { Example } from "."
-import React from "react"
 import { render } from "@testing-library/react"
+import React from "react"
+import { Example } from "."
 
 describe("Example", () => {
   it("name prop is rendered", () => {

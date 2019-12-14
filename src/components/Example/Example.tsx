@@ -1,5 +1,4 @@
 import React from "react"
-
 import { Private } from "./Private"
 
 export function Example() {

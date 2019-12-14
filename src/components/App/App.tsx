@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
-import { APIContext } from "../../contexts/APIContext"
 import { createApi } from "../../api"
+import { APIContext } from "../../contexts/APIContext"
 import { theme } from "../../theme"
 
 const Home = lazy(() => import("../../routes/Home"))
@@ -12,8 +12,8 @@ const api = createApi()
 
 export function App() {
   return (
-    <APIContext.Provider value={api}>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <APIContext.Provider value={api}>
         <Router>
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
@@ -26,7 +26,7 @@ export function App() {
             </Switch>
           </Suspense>
         </Router>
-      </ThemeProvider>
-    </APIContext.Provider>
+      </APIContext.Provider>
+    </ThemeProvider>
   )
 }
