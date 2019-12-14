@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components"
 import { createApi } from "../../api"
 import { APIContext } from "../../contexts/APIContext"
 import { theme } from "../../theme"
+import { AppBar } from "../AppBar"
 
 const Home = lazy(() => import("../../routes/Home"))
 const Companies = lazy(() => import("../../routes/Companies"))
@@ -15,6 +16,7 @@ export function App() {
     <ThemeProvider theme={theme}>
       <APIContext.Provider value={api}>
         <Router>
+          <AppBar />
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route exact path="/">
