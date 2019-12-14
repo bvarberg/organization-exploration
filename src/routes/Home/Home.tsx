@@ -7,6 +7,7 @@ export function Home() {
     <div>
       <AppBar />
       <h1>Home</h1>
+      <p>welcome to organization-exploration</p>
       <p>
         <Link to="/companies">Companies</Link>
       </p>

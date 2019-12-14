@@ -1,5 +1,5 @@
-import React, { lazy, Suspense } from "react"
-import { Switch, Route, useRouteMatch } from "react-router-dom"
+import React, { Suspense, lazy } from "react"
+import { Route, Switch, useRouteMatch } from "react-router-dom"
 
 const Browser = lazy(() => import("./Browser"))
 const Details = lazy(() => import("./Details"))

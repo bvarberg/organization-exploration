@@ -9,7 +9,7 @@ export function Browser() {
       <h1>Company Browser</h1>
       <ul>
         <Link to="/companies/124">
-          <li>Crema</li>
+          <li data-testid="company-list-item">Crema</li>
         </Link>
       </ul>
     </div>

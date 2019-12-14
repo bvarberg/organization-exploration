@@ -10,9 +10,9 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid ${props => props.theme.primaryColor};
+  border-right: 1px solid ${props => props.theme.palette.primary};
 `
 
 export function Drawer({ children }: Props) {
-  return <Container>{children}</Container>
+  return <Container data-testid="drawer">{children}</Container>
 }

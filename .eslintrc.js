@@ -18,6 +18,7 @@ module.exports = {
     "@typescript-eslint",
     "react",
     "cypress",
+    "import",
   ],
   rules: {
     "prettier/prettier": "error",
@@ -28,10 +29,10 @@ module.exports = {
     }],
     "import/order": ["error", {
       "alphabetize": { "order": "asc" },
-      "newlines-between": "never",
+      "newlines-between": "never"
     }],
     "import/newline-after-import": "error",
-    "import/no-duplicates": "error",
+    "import/no-duplicates": "error"
   },
   settings: {
     react: {

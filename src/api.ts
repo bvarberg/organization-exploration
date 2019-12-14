@@ -1,9 +1,9 @@
 import { config } from "./config"
 
 export interface APIClient {
-  setToken: ({ token }: { token: string }) => void
-  findAll: () => Promise<void>
-  findOne: () => Promise<void>
+  setToken(opts: Readonly<{ token: string }>): void
+  findAll(opts: Readonly<{ type: string }>): Promise<any[]>
+  findOne(opts: Readonly<{ type: string; id: string }>): Promise<any>
 }
 
 interface APIOptions {
@@ -34,11 +34,17 @@ class API implements APIClient {
   public async findAll() {
     console.log(`findAll at ${this.baseUrl}`)
     console.log(`token is ${this.token}`)
+    return []
   }
 
   public async findOne() {
     console.log(`findOne at ${this.baseUrl}`)
     console.log(`token is ${this.token}`)
+    return {
+      displayName: "Crema",
+      shortName: "crema",
+      id: "124",
+    }
   }
 }
 

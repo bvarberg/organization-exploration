@@ -24,7 +24,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  background-color: ${props => props.theme.primaryColor};
+  background-color: ${props => props.theme.palette.primary};
 `
 
 const Logo = styled.img.attrs(_ => ({

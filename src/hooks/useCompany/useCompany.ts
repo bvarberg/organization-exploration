@@ -1,14 +1,9 @@
-import { useState, useEffect, useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { APIContext } from "../../contexts/APIContext"
+import { Company } from "../../types/Company"
 
 interface Params {
   readonly id: string
-}
-
-interface Company {
-  displayName: string
-  shortName: string
-  id: string
 }
 
 export function useCompany({ id }: Params) {
@@ -22,21 +17,20 @@ export function useCompany({ id }: Params) {
   useEffect(() => {
     const loadCompany = async () => {
       try {
-        // const document = await api.findOne({ type: "company", id })
-        await api.findOne()
-        const document = {
-          displayName: "Crema",
-          shortName: "crema",
+        const response = await api.findOne({
+          type: "companies",
           id,
-        }
-        setCompany(document)
+        })
+        const company = response as Company
+
+        setCompany(company)
       } catch (err) {
         console.error(err)
       }
     }
 
     loadCompany()
-  }, [api, id])
+  }, [api, company, id])
 
   return company
 }

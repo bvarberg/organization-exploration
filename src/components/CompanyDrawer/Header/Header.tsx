@@ -8,7 +8,7 @@ type Props = Readonly<{
 
 const Container = styled.div`
   padding: ${props => props.theme.spacing(2)};
-  border-bottom: 1px solid ${props => props.theme.primaryColor};
+  border-bottom: 1px solid ${props => props.theme.palette.primary};
 `
 const Title = styled.h1`
   margin: 0;

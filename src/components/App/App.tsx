@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
 import { createApi } from "../../api"
 import { APIContext } from "../../contexts/APIContext"
