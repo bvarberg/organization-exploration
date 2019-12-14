@@ -58,7 +58,8 @@
     "new:util": "hygen util new",
     "prepush": "npm run test:ci",
     "static": "serve -s build",
-    "test:ci": "CI=true npm-run-all test:lint test:types \"test:unit -- -i\" test:visual:ci test:e2e:ci",
+    "test:ci": "CI=true npm-run-all test:lint test:types \"test:unit -- -i\" test:visual:ci test:e2e:ci test:deps:ci",
+    "test:deps:ci": "depcruise --validate -- src",
     "test:e2e": "cypress run",
     "test:e2e:ci": "CYPRESS_baseUrl=http://localhost:5000 start-server-and-test start:ci http://localhost:5000 \"cypress run --port 5052\"",
     "test:e2e:open": "cypress open",
@@ -79,7 +80,6 @@
     "test:analyze": "npm-run-all build && source-map-explorer build/static/js/main.*",
     "deps:graph": "depcruise --validate --output-type dot -- src | dot -T svg > dependency-graph.svg",
     "deps:report": "depcruise --validate --output-type err-html -f dependency-errors.html src",
-    "deps:ci": "depcruise --validate -- src",
     "build-storybook": "build-storybook -s public"
   },
   "husky": {
