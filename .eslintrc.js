@@ -23,12 +23,15 @@ module.exports = {
     "prettier/prettier": "error",
     "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/explicit-function-return-type": "off", // TS can infer this
-    "import/no-duplicates": "error",
+    "sort-imports": ["error", {
+      "ignoreDeclarationSort": true
+    }],
     "import/order": ["error", {
       "alphabetize": { "order": "asc" },
       "newlines-between": "never",
     }],
-    "import/newline-after-import": "error"
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
   },
   settings: {
     react: {
