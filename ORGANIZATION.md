@@ -1,6 +1,6 @@
 # Configuration
 
-See `src/config`. This file should be the only location that references `process.env`. Any module requiring configuration via environment should have that configuration provided by this file -- either by importing it directly or receiving its configuration via params.
+See [`src/config`](./src/config.ts). This file should be the only location that references `process.env`. Any module requiring configuration via environment should have that configuration provided by this file -- either by importing it directly or receiving its configuration via params.
 
 # Components
 
@@ -15,7 +15,7 @@ All components live in the `src/components` directory, with a few rules:
 
 Routes are also components, but each represents either a collection of related routes or a composition of components that make up the contents of a route.
 
-These use React's `Suspense` and `lazy` to lazily load the page implementations.
+These use React's `Suspense` and `lazy` to lazily load the page implementations based on [React's guide on route-based codesplitting](https://reactjs.org/docs/code-splitting.html#route-based-code-splitting).
 
 # Contexts & external services
 
