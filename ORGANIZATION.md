@@ -19,4 +19,4 @@ These use React's `Suspense` and `lazy` to lazily load the page implementations 
 
 # Contexts & external services
 
-Service wrappers like API clients are configured and injected into the application through `Context`s. The goal is to create and provide the client object once, and access it through the `useComponent` hook.
+Service wrappers like API clients are configured and injected into the application through `Context`s. The goal is to create and provide the client object once, and access it through the `useContext` hook.
