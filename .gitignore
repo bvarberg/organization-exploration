@@ -11,6 +11,10 @@
 # production
 /build
 
+# depcruiser output
+dependency-errors.html
+dependency-graph.svg
+
 # misc
 .DS_Store
 .env.local
