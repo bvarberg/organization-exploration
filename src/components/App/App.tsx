@@ -6,8 +6,8 @@ import { APIContext } from "../../contexts/APIContext"
 import { theme } from "../../theme"
 import { AppBar } from "../AppBar"
 
-const Home = lazy(() => import("../../routes/Home"))
-const Companies = lazy(() => import("../../routes/Companies"))
+const Home = lazy(() => import("../Home"))
+const Companies = lazy(() => import("../Companies"))
 
 const api = createApi()
 
