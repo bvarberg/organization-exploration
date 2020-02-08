@@ -1,9 +1,6 @@
 import { createContext } from "react"
+import { ServiceA as Service } from "./interface"
+import { mockServiceA } from "./mock"
 
-interface ServiceA {
-  findOne(): Promise<null>
-}
-
-// TODO: Is this where Mirage could step in?
-export const ServiceA = createContext<ServiceA>(null /* mock implementation */)
+export const ServiceA = createContext<Service>(mockServiceA)
 ServiceA.displayName = "ContextServiceA"
