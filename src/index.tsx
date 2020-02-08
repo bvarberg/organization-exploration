@@ -3,16 +3,7 @@ import ReactDOM from "react-dom"
 import { App } from "./components/App"
 import * as serviceWorker from "./serviceWorker"
 
-const createServiceA = () => ({ findOne: () => null })
-const createServiceB = () => ({ findAll: () => [] })
-
-const serviceA = createServiceA()
-const serviceB = createServiceB()
-
-ReactDOM.render(
-  <App serviceA={serviceA} serviceB={serviceB} />,
-  document.getElementById("root"),
-)
+ReactDOM.render(<App />, document.getElementById("root"))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -11,14 +11,14 @@ import { AppBar } from "../AppBar"
 const Home = lazy(() => import("../Home"))
 const Companies = lazy(() => import("../Companies"))
 
+const createServiceA = () => ({ findOne: () => null })
+const createServiceB = () => ({ findAll: () => [] })
+
+const serviceA = createServiceA()
+const serviceB = createServiceB()
 const api = createApi()
 
-interface Props {
-  serviceA: object // TODO: interface for the service
-  serviceB: object
-}
-
-export function App({ serviceA, serviceB }: Props) {
+export function App() {
   return (
     <ThemeProvider theme={theme}>
       <ServiceA.Provider value={serviceA}></ServiceA.Provider>
