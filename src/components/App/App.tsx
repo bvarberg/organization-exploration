@@ -3,6 +3,8 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
 import { createApi } from "../../api"
 import { APIContext } from "../../contexts/APIContext"
+import { ServiceA } from "../../contexts/ServiceA"
+import { ServiceB } from "../../contexts/ServiceB"
 import { theme } from "../../theme"
 import { AppBar } from "../AppBar"
 
@@ -11,9 +13,16 @@ const Companies = lazy(() => import("../Companies"))
 
 const api = createApi()
 
-export function App() {
+interface Props {
+  serviceA: object // TODO: interface for the service
+  serviceB: object
+}
+
+export function App({ serviceA, serviceB }: Props) {
   return (
     <ThemeProvider theme={theme}>
+      <ServiceA.Provider value={serviceA}></ServiceA.Provider>
+      <ServiceB.Provider value={serviceB}></ServiceB.Provider>
       <APIContext.Provider value={api}>
         <Router>
           <AppBar />
