@@ -78,7 +78,7 @@
     "test:visual:approve": "npm run test:visual -- approve",
     "test:visual:update": "npm run test:visual -- update",
     "test:analyze": "npm-run-all build && source-map-explorer build/static/js/main.*",
-    "deps:graph": "depcruise --validate --output-type dot -- src | dot -T svg > dependency-graph.svg",
+    "deps:graph": "depcruise --validate --exclude \"(test)\" --output-type dot -- src | dot -T svg > dependency-graph.svg",
     "deps:report": "depcruise --validate --output-type err-html -f dependency-errors.html src",
     "build-storybook": "build-storybook -s public"
   },
