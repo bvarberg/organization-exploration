@@ -3,5 +3,5 @@ import { APIClient, createApi } from "../../api"
 
 const api = createApi()
 
-export const APIContext = createContext<APIClient>(api)
-APIContext.displayName = "APIContext"
+export const Context = createContext<APIClient>(api)
+Context.displayName = "ContextAPI"

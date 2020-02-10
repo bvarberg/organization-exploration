@@ -1,7 +1,7 @@
 import React from "react"
 import td from "testdouble"
 import { APIClient } from "../../api"
-import { APIContext } from "../../contexts/APIContext"
+import { Context } from "../../contexts/API"
 import { renderWithTheme } from "../../utils/test-utils"
 import { CompanyDrawer } from "."
 
@@ -16,9 +16,9 @@ describe("CompanyDrawer", () => {
     })
 
     const { findByText } = renderWithTheme(
-      <APIContext.Provider value={api}>
+      <Context.Provider value={api}>
         <CompanyDrawer companyId={companyId} />
-      </APIContext.Provider>,
+      </Context.Provider>,
     )
     const received = await findByText("Crema")
 

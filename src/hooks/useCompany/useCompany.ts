@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react"
-import { APIContext } from "../../contexts/APIContext"
+import { Context as API } from "../../contexts/API"
 import { Company } from "../../types/Company"
 
 interface Params {
@@ -7,7 +7,7 @@ interface Params {
 }
 
 export function useCompany({ id }: Params) {
-  const api = useContext(APIContext)
+  const api = useContext(API)
   const [company, setCompany] = useState<Company>({
     displayName: "No company",
     shortName: "none",
