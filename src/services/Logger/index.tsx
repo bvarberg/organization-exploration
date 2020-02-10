@@ -1,11 +1,11 @@
-import { ConsoleLogger } from "./ConsoleLogger"
-import { mockLogger } from "./MockLogger"
+import { ConsoleLogger } from "../../lib/console-logger"
+import { mockLogger } from "./mock"
 
 export interface Logger {
   log(message?: string): void
 }
 
-export function createLogger(type: string): Logger {
+export function createLogger(type: "mock" | "console"): Logger {
   switch (type) {
     case "mock":
       return mockLogger

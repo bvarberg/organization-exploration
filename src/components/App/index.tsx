@@ -3,26 +3,24 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
 import { createApi } from "../../api"
 import { APIContext } from "../../contexts/APIContext"
-import { ServiceA } from "../../contexts/ServiceA"
-import { ServiceB } from "../../contexts/ServiceB"
+import { Context as ContextLogger } from "../../contexts/Logger"
+import { Logger } from "../../services/Logger"
 import { theme } from "../../theme"
 import { AppBar } from "../AppBar"
 
 const Home = lazy(() => import("../Home"))
 const Companies = lazy(() => import("../Companies"))
 
-const createServiceA = () => ({ findOne: () => null })
-const createServiceB = () => ({ findAll: () => [] })
-
-const serviceA = createServiceA()
-const serviceB = createServiceB()
 const api = createApi()
 
-export function App() {
+interface Props {
+  logger: Logger
+}
+
+export function App({ logger }: Props) {
   return (
     <ThemeProvider theme={theme}>
-      <ServiceA.Provider value={serviceA}></ServiceA.Provider>
-      <ServiceB.Provider value={serviceB}></ServiceB.Provider>
+      <ContextLogger.Provider value={logger} />
       <APIContext.Provider value={api}>
         <Router>
           <AppBar />

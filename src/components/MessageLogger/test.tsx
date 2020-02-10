@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react"
 import React from "react"
 import td from "testdouble"
-import { Context } from "../../contexts/Logger"
+import { ContextLogger } from "../../contexts/Logger"
 import { Logger } from "../../services/Logger"
 import { MessageLogger } from "./"
 
@@ -9,9 +9,9 @@ describe("MessageLogger", () => {
   it("logs a message when clicked", () => {
     const mockLogger = td.object<Logger>()
     const { getByText } = render(
-      <Context.Provider value={mockLogger}>
+      <ContextLogger.Provider value={mockLogger}>
         <MessageLogger />
-      </Context.Provider>,
+      </ContextLogger.Provider>,
     )
 
     fireEvent.click(getByText("Log Message"))

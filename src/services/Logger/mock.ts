@@ -1,4 +1,4 @@
 import testdouble from "testdouble"
-import { Logger } from "../"
+import { Logger } from "."
 
 export const mockLogger = testdouble.object<Logger>()
