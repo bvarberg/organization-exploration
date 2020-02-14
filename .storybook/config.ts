@@ -5,4 +5,4 @@ import "../src/index.css"
 
 addDecorator(useTheme)
 
-configure(require.context('../src', true, /\.stories\.tsx$/), module)
+configure(require.context('../src', true, /.*stories\.tsx$/), module)
