@@ -6,9 +6,11 @@ export function Home() {
     <div>
       <h1>Home</h1>
       <p>welcome to organization-exploration</p>
-      <p>
-        <Link to="/companies">Companies</Link>
-      </p>
+      <ul>
+        <li>
+          <Link to="/teams">Teams</Link>
+        </li>
+      </ul>
     </div>
   )
 }

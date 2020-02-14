@@ -27,11 +27,14 @@ export class Teamio implements TeamService {
   }
 
   public async find({ id }: { id: string }) {
-    try {
-      const response = await Promise.resolve({
-        name: "Crema",
-        id,
+    const delayedResponse = async () => {
+      return new Promise(resolve => {
+        setTimeout(() => resolve({ name: "Crema", id }), 2000)
       })
+    }
+
+    try {
+      const response = await delayedResponse()
       return new Team(response)
     } catch (err) {
       throw new Error(`failed to find team: ${err.message}`)

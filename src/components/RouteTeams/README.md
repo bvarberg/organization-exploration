@@ -1,0 +1,1 @@
+When using `Suspense`, the lazily imported components must be a default export.

@@ -1,16 +1,16 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { createApi } from "./api"
 import { App } from "./components/App"
 import { config } from "./config"
 import * as serviceWorker from "./serviceWorker"
 import { createLogger } from "./services/Logger"
+import { Teamio } from "./teamio"
 
-const api = createApi()
 const logger = createLogger(config.logger.type)
+const teamService = new Teamio(config.teamService)
 
 ReactDOM.render(
-  <App api={api} logger={logger} />,
+  <App logger={logger} teamService={teamService} />,
   document.getElementById("root"),
 )
 
