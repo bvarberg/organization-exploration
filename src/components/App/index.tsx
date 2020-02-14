@@ -3,10 +3,8 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
 import { Context as ContextLogger } from "../../contexts/Logger"
 import { Logger } from "../../services/Logger"
-import {
-  Context as ContextTeamService,
-  TeamService,
-} from "../../services/TeamService"
+import { TeamService } from "../../services/TeamService"
+import { Context as ContextTeamService } from "../../services/TeamService/context"
 import { theme } from "../../theme"
 import { AppBar } from "../AppBar"
 

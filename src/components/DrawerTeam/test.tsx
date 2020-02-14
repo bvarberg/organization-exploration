@@ -1,6 +1,8 @@
 import React from "react"
 import td from "testdouble"
-import { Context, Team, TeamService } from "../../services/TeamService"
+import { TeamService } from "../../services/TeamService"
+import { Context } from "../../services/TeamService/context"
+import { Team } from "../../services/TeamService/structures"
 import { renderWithTheme } from "../../utils/test-utils"
 import { DrawerTeam } from "."
 

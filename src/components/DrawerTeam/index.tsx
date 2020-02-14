@@ -1,5 +1,5 @@
 import React from "react"
-import { useTeam } from "../../services/TeamService"
+import { useTeam } from "../../services/TeamService/hooks"
 import { Drawer } from "../Drawer"
 import { Header } from "./Header"
 

@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Team, TeamService } from "./services/TeamService"
+import { TeamService } from "./services/TeamService"
+import { Team } from "./services/TeamService/structures"
 
 interface TeamioOptions {
   readonly baseURL: string
 }
 
+/**
+ * Adapts a fake "Teamio" data source to the TeamService interface.
+ */
 export class Teamio implements TeamService {
   private _baseURL: string
   private _token: string
