@@ -1,18 +1,12 @@
 import decoratorCentered from "@storybook/addon-centered/react"
 import React from "react"
 import testdouble from "testdouble"
+import { factories } from "../../factories"
 import {
   Context as ContextTeamService,
   TeamService,
 } from "../../services/TeamService"
-// replace below with fishery factory
-import { Team } from "../../services/TeamService/structures"
 import { DrawerTeam } from "."
-
-/**
- * See Storybook Docs: Writing Stories
- * https://storybook.js.org/docs/basics/writing-stories/
- */
 
 export default {
   title: "DrawerTeam",
@@ -20,10 +14,11 @@ export default {
 }
 
 export const example = () => {
+  const team = factories.team.build()
   const mockTeamService = testdouble.object<TeamService>()
-  testdouble.when(mockTeamService.find({ id: "123" })).thenResolve<Team>({
-    name: "Storybook Team",
-  })
+  testdouble
+    .when(mockTeamService.find(testdouble.matchers.anything()))
+    .thenResolve(team)
 
   return (
     <ContextTeamService.Provider value={mockTeamService}>
