@@ -3,7 +3,7 @@ import td from "testdouble"
 import { TeamService } from "../../services/TeamService"
 import { Context } from "../../services/TeamService/context"
 import { Team } from "../../services/TeamService/structures"
-import { renderWithTheme } from "../../utils/test-utils"
+import { renderWithTheme } from "../../util/test-utils"
 import { DrawerTeam } from "."
 
 describe("DrawerTeam", () => {
