@@ -5,7 +5,7 @@ import {
   Context as ContextTeamService,
   TeamService,
 } from "../../services/TeamService"
-import { renderWithTheme } from "../../util/test-utils"
+import { renderWithTheme } from "../../utils/test-utils"
 import { DrawerTeam } from "."
 
 describe("DrawerTeam", () => {
