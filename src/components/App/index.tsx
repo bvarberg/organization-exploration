@@ -1,10 +1,11 @@
 import React, { Suspense, lazy } from "react"
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
 import { ThemeProvider } from "styled-components"
-import { Context as ContextLogger } from "../../contexts/Logger"
-import { Logger } from "../../services/Logger"
-import { TeamService } from "../../services/TeamService"
-import { Context as ContextTeamService } from "../../services/TeamService/context"
+import { Context as ContextLogger, Logger } from "../../services/Logger"
+import {
+  Context as ContextTeamService,
+  TeamService,
+} from "../../services/TeamService"
 import { theme } from "../../theme"
 import { AppBar } from "../AppBar"
 

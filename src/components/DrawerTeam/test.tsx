@@ -1,7 +1,9 @@
 import React from "react"
 import td from "testdouble"
-import { TeamService } from "../../services/TeamService"
-import { Context } from "../../services/TeamService/context"
+import {
+  Context as ContextTeamService,
+  TeamService,
+} from "../../services/TeamService"
 import { Team } from "../../services/TeamService/structures"
 import { renderWithTheme } from "../../util/test-utils"
 import { DrawerTeam } from "."
@@ -20,9 +22,9 @@ describe("DrawerTeam", () => {
     )
 
     const { findByText } = renderWithTheme(
-      <Context.Provider value={mockTeamService}>
+      <ContextTeamService.Provider value={mockTeamService}>
         <DrawerTeam teamID={teamID} />
-      </Context.Provider>,
+      </ContextTeamService.Provider>,
     )
     const received = await findByText("Crema")
 
