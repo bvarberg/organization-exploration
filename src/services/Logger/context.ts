@@ -1,6 +1,6 @@
 import { createContext } from "react"
 import testdouble from "testdouble"
-import { Logger } from "."
+import { Logger } from "./interface"
 
 const mockLogger = testdouble.object<Logger>()
 

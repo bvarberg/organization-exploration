@@ -1,6 +1,6 @@
 import { createContext } from "react"
 import testdouble from "testdouble"
-import { TeamService } from "."
+import { TeamService } from "./interface"
 
 const mockTeamService = testdouble.object<TeamService>()
 
