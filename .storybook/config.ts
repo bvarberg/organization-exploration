@@ -1,7 +1,7 @@
 import { addDecorator, configure } from "@storybook/react"
 import "loki/configure-react"
-import { useTheme } from "./decorators/useTheme"
+import { withTheme } from "./decorators/withTheme"
 
-addDecorator(useTheme)
+addDecorator(withTheme)
 
 configure(require.context('../src', true, /.*stories\.tsx$/), module)

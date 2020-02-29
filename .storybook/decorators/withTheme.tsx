@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components"
 
 import { theme } from '../../src/theme'
 
-export function useTheme(storyFn: any) {
+export function withTheme(storyFn: any) {
   return (
     <ThemeProvider theme={theme}>
       {storyFn()}
