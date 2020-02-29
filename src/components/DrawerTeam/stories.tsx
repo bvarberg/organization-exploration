@@ -1,5 +1,9 @@
 import decoratorCentered from "@storybook/addon-centered/react"
 import React from "react"
+import testdouble from "testdouble"
+import { TeamService } from "../../services/TeamService"
+import { Context as ContextTeamService } from "../../services/TeamService/context"
+import { Team } from "../../services/TeamService/structures"
 import { DrawerTeam } from "."
 
 /**
@@ -12,4 +16,15 @@ export default {
   decorators: [decoratorCentered],
 }
 
-export const example = () => <DrawerTeam teamID={"123"} />
+export const example = () => {
+  const mockTeamService = testdouble.object<TeamService>()
+  testdouble.when(mockTeamService.find({ id: "123" })).thenResolve<Team>({
+    name: "Storybook Team",
+  })
+
+  return (
+    <ContextTeamService.Provider value={mockTeamService}>
+      <DrawerTeam teamID={"123"} />
+    </ContextTeamService.Provider>
+  )
+}
