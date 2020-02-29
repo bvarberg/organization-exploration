@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TeamService } from "./services/TeamService"
-import { Team } from "./services/TeamService/structures"
+import { TeamService } from "../../services/TeamService"
+import { Team } from "../../services/TeamService/structures"
 
 interface TeamioOptions {
   readonly baseURL: string

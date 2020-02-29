@@ -2,11 +2,11 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { App } from "./components/App"
 import { config } from "./config"
+import { ConsoleLogger } from "./lib/console-logger"
+import { Teamio } from "./lib/teamio"
 import * as serviceWorker from "./serviceWorker"
-import { createLogger } from "./services/Logger"
-import { Teamio } from "./teamio"
 
-const logger = createLogger(config.logger.type)
+const logger = new ConsoleLogger()
 const teamService = new Teamio(config.teamService)
 
 ReactDOM.render(
