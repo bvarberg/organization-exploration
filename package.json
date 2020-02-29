@@ -53,7 +53,7 @@
     "start": "EXTEND_ESLINT=true react-scripts start",
     "start:ci": "EXTEND_ESLINT=true npm-run-all build static",
     "build": "EXTEND_ESLINT=true react-scripts build",
-    "test": "EXTEND_ESLINT=true react-scripts test",
+    "test": "EXTEND_ESLINT=true react-scripts test --testMatch=[ \"**/?(*.)test.ts?(x)\" ]",
     "new:component": "hygen component new",
     "new:type": "hygen type new",
     "new:util": "hygen util new",
