@@ -107,32 +107,16 @@ module.exports = {
         moreThanOneDependencyType: true
       }
     },
-
-    /* rules you might want to tweak for your specific situation: */
     {
       name: 'not-to-test',
       comment:
-        "This module depends on code within a folder that should only contain tests. As tests don't " +
-        "implement functionality this is odd. Either you're writing a test outside the test folder " +
-        "or there's something in the test folder that isn't a test.",
-      severity: 'error',
-      from: {
-        pathNot: '^(test|spec)'
-      },
-      to: {
-        path: '^(test|spec)'
-      }
-    },
-    {
-      name: 'not-to-spec',
-      comment:
-        'This module depends on a spec (test) file. The sole responsibility of a spec file is to test code. ' +
-        "If there's something in a spec that's of use to other modules, it doesn't have that single " +
+        'This module depends on a test file. The sole responsibility of a test file is to test code. ' +
+        "If there's something in a test file that's of use to other modules, it doesn't have that single " +
         'responsibility anymore. Factor it out into (e.g.) a separate utility/ helper or a mock.',
       severity: 'error',
       from: {},
       to: {
-        path: '\\.spec\\.(js|ts|ls|coffee|litcoffee|coffee\\.md)$'
+        path: 'test\\.tsx?$'
       }
     },
     {
@@ -145,8 +129,8 @@ module.exports = {
         'section of your package.json. If this module is development only - add it to the ' +
         'from.pathNot re of the not-to-dev-dep rule in the dependency-cruiser configuration',
       from: {
-        path: '^(src|app|lib)',
-        pathNot: '\\.(test|spec|stories)\\.(jsx?|tsx?|ls|coffee|litcoffee|coffee\\.md)$'
+        path: '^src',
+        pathNot: '(^src/(factories|services/([^/]+)/context.ts|setupTests.ts|utils/test-utils.ts)|(test|stories)\\.tsx?$)'
       },
       to: {
         dependencyTypes: [
@@ -186,14 +170,12 @@ module.exports = {
     }
   ],
   options: {
-
     /* conditions specifying which files not to follow further when encountered:
        - path: a regular expression to match
        - dependencyTypes: see https://github.com/sverweij/dependency-cruiser/blob/develop/doc/rules-reference.md#dependencytypes
          for a complete list
     */
     doNotFollow: {
-      // path: 'node_modules',
       dependencyTypes: [
         'npm',
         'npm-dev',
@@ -202,81 +184,12 @@ module.exports = {
         'npm-bundled',
         'npm-no-pkg'
       ]
-    }
-
-    /* conditions specifying which dependencies to exclude
-       - path: a regular expression to match
-       - dynamic: a boolean indicating whether to ignore dynamic (true) or static (false) dependencies.
-                leave out if you want to exclude neither (recommended!)
-    */
-    // , exclude : {
-    //   path: ''
-    //   , dynamic: true
-    // }
-
-    /* pattern specifying which files to include (regular expression)
-       dependency-cruiser will skip everything not matching this pattern
-    */
-    // , includeOnly : ''
-
-    /* list of module systems to cruise */
-    // , moduleSystems: ['amd', 'cjs', 'es6', 'tsd']
-
-    /* prefix for links in html and svg output (e.g. https://github.com/you/yourrepo/blob/develop/) */
-    // , prefix: ''
-
-    /* false (the default): ignore dependencies that only exist before typescript-to-javascript compilation
-       true: also detect dependencies that only exist before typescript-to-javascript compilation
-       "specify": for each dependency identify whether it only exists before compilation or also after
-     */
-    , tsPreCompilationDeps: true
-
-    /* if true combines the package.jsons found from the module up to the base
-       folder the cruise is initiated from. Useful for how (some) mono-repos
-       manage dependencies & dependency definitions.
-     */
-    // , combinedDependencies: false
-
-    /* if true leave symlinks untouched, otherwise use the realpath */
-    // , preserveSymlinks: false
-
-    /* Typescript project file ('tsconfig.json') to use for
-       (1) compilation and
-       (2) resolution (e.g. with the paths property)
-
-       The (optional) fileName attribute specifies which file to take (relative to
-       dependency-cruiser's current working directory). When not provided
-       defaults to './tsconfig.json'.
-     */
-    , tsConfig: {
+    },
+    tsPreCompilationDeps: true,
+    tsConfig: {
       fileName: './tsconfig.json'
     }
-
-    /* Webpack configuration to use to get resolve options from.
-
-      The (optional) fileName attribute specifies which file to take (relative to dependency-cruiser's
-      current working directory. When not provided defaults to './webpack.conf.js'.
-
-      The (optional) `env` and `args` attributes contain the parameters to be passed if
-      your webpack config is a function and takes them (see webpack documentation
-      for details)
-     */
-    // , webpackConfig: {
-    //    fileName: './webpack.conf.js'
-    //    , env: {}
-    //    , args: {}
-    // }
-
-    /* How to resolve external modules - use "yarn-pnp" if you're using yarn's Plug'n'Play.
-       otherwise leave it out (or set to the default, which is 'node_modules')
-    */
-    // , externalModuleResolutionStrategy: 'node_modules'
-    /* List of strings you have in use in addition to cjs/ es6 requires
-       & imports to declare module dependencies. Use this e.g. if you've
-       redeclared require, use a require-wrapper or use window.require as
-       a hack
-    */
-    // , exoticRequireStrings: []
   }
 };
-// generated: dependency-cruiser@6.0.0 on 2019-12-12T19:38:57.960Z
+// originally generated: dependency-cruiser@6.0.0 on 2019-12-12T19:38:57.960Z
+// modified since
