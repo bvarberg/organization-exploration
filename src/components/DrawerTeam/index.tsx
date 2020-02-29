@@ -20,7 +20,7 @@ export function DrawerTeam({ teamID, children }: Props) {
 
   return (
     <Drawer>
-      <Header title={team.name} subtitle={team.name} />
+      <Header title={team.name} subtitle={team.id} />
       {children}
     </Drawer>
   )
