@@ -1,7 +1,8 @@
 import { createContext } from "react"
-import { Logger, createLogger } from "."
+import testdouble from "testdouble"
+import { Logger } from "."
 
-const defaultLogger = createLogger("mock")
+const mockLogger = testdouble.object<Logger>()
 
-export const ContextLogger = createContext<Logger>(defaultLogger)
-ContextLogger.displayName = "ContextLogger"
+export const Context = createContext<Logger>(mockLogger)
+Context.displayName = "ContextLogger"

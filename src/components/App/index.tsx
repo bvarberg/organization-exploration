@@ -8,7 +8,7 @@ import { Context as ContextTeamService } from "../../services/TeamService/contex
 import { theme } from "../../theme"
 import { AppBar } from "../AppBar"
 
-const Home = lazy(() => import("../Home"))
+const RouteHome = lazy(() => import("../RouteHome"))
 const RouteTeams = lazy(() => import("../RouteTeams"))
 
 interface Props {
@@ -19,22 +19,23 @@ interface Props {
 export function App({ logger, teamService }: Props) {
   return (
     <ThemeProvider theme={theme}>
-      <ContextLogger.Provider value={logger} />
-      <ContextTeamService.Provider value={teamService}>
-        <Router>
-          <AppBar />
-          <Suspense fallback={<div>Loading...</div>}>
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/teams">
-                <RouteTeams />
-              </Route>
-            </Switch>
-          </Suspense>
-        </Router>
-      </ContextTeamService.Provider>
+      <ContextLogger.Provider value={logger}>
+        <ContextTeamService.Provider value={teamService}>
+          <Router>
+            <AppBar />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Switch>
+                <Route exact path="/">
+                  <RouteHome />
+                </Route>
+                <Route path="/teams">
+                  <RouteTeams />
+                </Route>
+              </Switch>
+            </Suspense>
+          </Router>
+        </ContextTeamService.Provider>
+      </ContextLogger.Provider>
     </ThemeProvider>
   )
 }
