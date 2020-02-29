@@ -1,4 +1,3 @@
-import decoratorCentered from "@storybook/addon-centered/react"
 import React from "react"
 import testdouble from "testdouble"
 import { factories } from "../../factories"
@@ -10,7 +9,6 @@ import { DrawerTeam } from "."
 
 export default {
   title: "DrawerTeam",
-  decorators: [decoratorCentered],
 }
 
 export const example = () => {
