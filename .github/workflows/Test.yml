@@ -27,7 +27,8 @@ jobs:
       - if: always()
         run: npm run deps:report
       - uses: actions/upload-artifact@v1
-          with: dependency-graph
+        with:
+          name: dependency-graph
           path: ./dependency-graph.svg
       - uses: actions/upload-artifact@v1
         with:
