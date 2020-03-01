@@ -9,8 +9,8 @@ import {
 import { theme } from "../../theme"
 import { AppBar } from "../AppBar"
 
-const RouteHome = lazy(() => import("../RouteHome"))
-const RouteTeams = lazy(() => import("../RouteTeams"))
+const Home = lazy(() => import("../Home"))
+const RouterTeams = lazy(() => import("../RouterTeams"))
 
 interface Props {
   logger: Logger
@@ -27,10 +27,10 @@ export function App({ logger, teamService }: Props) {
             <Suspense fallback={<div>Loading...</div>}>
               <Switch>
                 <Route exact path="/">
-                  <RouteHome />
+                  <Home />
                 </Route>
                 <Route path="/teams">
-                  <RouteTeams />
+                  <RouterTeams />
                 </Route>
               </Switch>
             </Suspense>

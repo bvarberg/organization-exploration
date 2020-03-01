@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { PageContent } from "../PageContent"
 import { PageWrapper } from "../PageWrapper"
 
-export default function RouteHome() {
+export default function Home() {
   return (
     <PageWrapper>
       <PageContent>
