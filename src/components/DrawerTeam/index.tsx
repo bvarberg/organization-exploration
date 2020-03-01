@@ -6,16 +6,15 @@ import { Header } from "./Header"
 type Props = Readonly<{ teamID: string; children?: React.ReactNode }>
 
 export function DrawerTeam({ teamID, children }: Props) {
-  const { team, error } = useTeam({ id: teamID })
-  if (error) {
-    return null
-  }
-  if (!team) {
+  const { team, status } = useTeam({ id: teamID })
+  if (status === "loading") {
     return (
       <Drawer>
-        <Header title="Team" subtitle="loading..." />
+        <Header title="Loading" subtitle="..." />
       </Drawer>
     )
+  } else if (status === "error") {
+    return null
   }
 
   return (

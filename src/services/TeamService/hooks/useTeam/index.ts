@@ -1,29 +1,19 @@
-import { useContext, useEffect, useState } from "react"
-import { Context } from "../../context"
-import { Team } from "../../structures/Team"
+import { useQuery } from "react-query"
+import { useTeamService } from "../useTeamService"
 
 interface Params {
   id: string
 }
 
 export function useTeam({ id }: Params) {
-  const teamService = useContext(Context)
+  const { teamService } = useTeamService()
 
-  const [data, setData] = useState<undefined | Team>(undefined)
-  const [error, setError] = useState<undefined | Error>(undefined)
+  const { status, data, error } = useQuery(
+    ["teams", id],
+    (_key: unknown, id: string) => {
+      return teamService.find({ id })
+    },
+  )
 
-  useEffect(() => {
-    const findTeam = async () => {
-      try {
-        const team = await teamService.find({ id })
-        setData(team)
-      } catch (err) {
-        setError(err)
-      }
-    }
-
-    findTeam()
-  }, [id, teamService])
-
-  return { team: data, error }
+  return { team: data, status, error }
 }
