@@ -20,15 +20,16 @@ jobs:
             ${{ runner.os }}-node-
       - run: npm ci
       - run: npm run test:lint
-      - run: npm run test:deps:ci
       - run: npm run test:types
-      - run: npm run deps:graph
-      - uses: actions/upload-artifact@v1
-        with:
-          name: dependency-graph
+      - run: npm run test:deps:ci
+      - if: always()
+        run: npm run deps:graph
+        uses: actions/upload-artifact@v1
+          with: dependency-graph
           path: ./dependency-graph.svg
-      - run: npm run deps:report
-      - uses: actions/upload-artifact@v1
+      - if: always()
+        run: npm run deps:report
+        uses: actions/upload-artifact@v1
         with:
           name: dependency-report
           path: ./dependency-report.html
