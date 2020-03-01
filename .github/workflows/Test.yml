@@ -24,12 +24,12 @@ jobs:
       - run: npm run test:deps:ci
       - if: always()
         run: npm run deps:graph
-        uses: actions/upload-artifact@v1
-          with: dependency-graph
-          path: ./dependency-graph.svg
       - if: always()
         run: npm run deps:report
-        uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v1
+          with: dependency-graph
+          path: ./dependency-graph.svg
+      - uses: actions/upload-artifact@v1
         with:
           name: dependency-report
           path: ./dependency-report.html
