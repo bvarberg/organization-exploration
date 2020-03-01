@@ -21,7 +21,6 @@ jobs:
       - run: npm ci
       - run: npm run test:lint
       - run: npm run test:types
-      - run: npm run test:deps:ci
       - run: npm run test:unit
       - run: npm run deps:graph
       - uses: actions/upload-artifact@v1
@@ -41,12 +40,6 @@ jobs:
       CI: true
     steps:
       - uses: actions/checkout@v1
-      - uses: cypress-io/github-action@v1
-        with:
-          start: npm start
-
-    steps:
-      - uses: actions/checkout@v1
       - uses: actions/cache@v1
         with:
           path: ~/.npm
@@ -55,16 +48,6 @@ jobs:
             ${{ runner.os }}-node-
       - run: npm ci
       - run: npm run test:unit
-      - run: npm run deps:graph
-      - uses: actions/upload-artifact@v1
-        with:
-          name: dependency-graph
-          path: ./dependency-graph.svg
-      - run: npm run deps:report
-      - uses: actions/upload-artifact@v1
-        with:
-          name: dependency-report
-          path: ./dependency-report.html
 
   acceptance:
     name: End-to-end
