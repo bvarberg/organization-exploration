@@ -10,17 +10,14 @@ export function DrawerTeam({ teamID, children }: Props) {
   if (error) {
     return null
   }
-  if (!team) {
-    return (
-      <Drawer>
-        <Header title="Team" subtitle="loading..." />
-      </Drawer>
-    )
-  }
 
   return (
     <Drawer>
-      <Header title={team.name} subtitle={team.id} />
+      {team ? (
+        <Header title={team.name} subtitle={team.id} />
+      ) : (
+        <Header title="Team" subtitle="loading..." />
+      )}
       {children}
     </Drawer>
   )
