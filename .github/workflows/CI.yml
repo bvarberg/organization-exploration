@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: kamiazya/setup-graphviz@v1
       - uses: actions/checkout@v1
       - uses: actions/cache@v1
         with:
@@ -39,7 +40,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - uses: kamiazya/setup-graphviz@v1
+      - run: npm ci
       - run: npm run deps:graph
       - uses: actions/upload-artifact@v1
         with:
