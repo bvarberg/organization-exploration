@@ -1,8 +1,8 @@
 import React, { Suspense, lazy } from "react"
 import { Route, Switch, useRouteMatch } from "react-router-dom"
 
-const Browser = lazy(() => import("./Browser"))
-const Details = lazy(() => import("./Details"))
+const RouteBrowser = lazy(() => import("./RouteBrowser"))
+const RouteDetails = lazy(() => import("./RouteDetails"))
 
 export default function RouteTeams() {
   const { path } = useRouteMatch()
@@ -11,10 +11,10 @@ export default function RouteTeams() {
     <Suspense fallback={<div>Loading Teams...</div>}>
       <Switch>
         <Route exact path={path}>
-          <Browser />
+          <RouteBrowser />
         </Route>
         <Route path={`${path}/:teamID`}>
-          <Details />
+          <RouteDetails />
         </Route>
       </Switch>
     </Suspense>

@@ -1,11 +1,11 @@
 import React from "react"
 import { useParams } from "react-router-dom"
-import { DrawerTeam } from "../../../components/DrawerTeam"
-import { PageContent } from "../../../components/PageContent"
-import { PageWrapper } from "../../../components/PageWrapper"
+import { DrawerTeam } from "../../DrawerTeam"
 import { MessageLogger } from "../../MessageLogger"
+import { PageContent } from "../../PageContent"
+import { PageWrapper } from "../../PageWrapper"
 
-export default function Details() {
+export default function RouteDetails() {
   const { teamID } = useParams()
   if (!teamID) {
     // TODO: 404 view
