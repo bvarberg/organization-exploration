@@ -15,6 +15,6 @@ describe("MessageLogger", () => {
     )
     fireEvent.click(getByText("Log Message"))
 
-    testdouble.verify(mockLogger.log(testdouble.matchers.anything()))
+    testdouble.verify(mockLogger.log("uses the logger service"))
   })
 })

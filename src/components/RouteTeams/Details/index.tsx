@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { DrawerTeam } from "../../../components/DrawerTeam"
 import { PageContent } from "../../../components/PageContent"
 import { PageWrapper } from "../../../components/PageWrapper"
+import { MessageLogger } from "../../MessageLogger"
 
 export default function Details() {
   const { teamID } = useParams()
@@ -16,6 +17,7 @@ export default function Details() {
       <DrawerTeam teamID={teamID} />
       <PageContent>
         <p>More information about the team!</p>
+        <MessageLogger />
       </PageContent>
     </PageWrapper>
   )
